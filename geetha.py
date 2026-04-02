@@ -8,7 +8,7 @@ from google.genai.errors import ClientError, ServerError
 
 # ---------------- API KEY ----------------
 # ⚠️ Replace with your key (for demo only)
-api_key = "AIzaSyBY3KGvoGaWkbVZiJClvNdKwBDwqEYw8sA"
+api_key = os.getenv("GOOGLE_API_KEY") or st.secrets["GOOGLE_API_KEY"]
 client = genai.Client(api_key=api_key)
 
 # ---------------- LOAD GITA ----------------
