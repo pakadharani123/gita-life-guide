@@ -5,10 +5,13 @@ import numpy as np
 
 from google import genai
 from google.genai.errors import ClientError, ServerError
+import os
 
-# ---------------- API KEY ----------------
-# ⚠️ Replace with your key (for demo only)
-api_key = os.getenv("GOOGLE_API_KEY") or st.secrets["GOOGLE_API_KEY"]
+try:
+    import streamlit as st
+    api_key = os.getenv("GOOGLE_API_KEY") or st.secrets["GOOGLE_API_KEY"]
+except:
+    api_key = os.getenv("GOOGLE_API_KEY")
 client = genai.Client(api_key=api_key)
 
 # ---------------- LOAD GITA ----------------
